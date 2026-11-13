@@ -107,6 +107,7 @@ export const projects: Project[] = [
     ],
     status: "Live",
     timeline: "2026 – Present",
+    demoUrl: "https://auth.psstee.me",
     slug: "uniauth",
   },
   {
@@ -274,6 +275,7 @@ export const projects: Project[] = [
     ],
     status: "Live",
     timeline: "2026",
+    demoUrl: "https://play.psstee.me",
     slug: "doohickey",
   },
   {
@@ -297,9 +299,9 @@ export const projects: Project[] = [
       "Retry logic for network reliability",
       "Containerized Linux deployment",
     ],
-    status: "Completed",
+    status: "Live",
     timeline: "Jun 2025 – Jul 2025",
-    repoUrl: "https://github.com/Pssttt/court-booking",
+    demoUrl: "https://booking.psstee.me",
     slug: "court-booking",
   },
   {
