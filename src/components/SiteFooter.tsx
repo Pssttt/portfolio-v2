@@ -25,13 +25,16 @@ export function SiteFooter() {
       >
         {sha && sha !== "dev" && (
           <a
-            href={`https://github.com/Pssttt/psstee/commit/${sha}`}
+            href={`https://github.com/Pssttt/portfolio-v2/commit/${sha}`}
             className="link link-quiet muted"
             title="The commit this page was built from. CI builds the image and Argo CD rolls it out."
           >
             Built from {sha.slice(0, 7)}
           </a>
         )}
+        <a href={links.terminal} className="link link-quiet muted">
+          Terminal version
+        </a>
         <a href={links.github} className="link link-quiet muted">
           GitHub
         </a>

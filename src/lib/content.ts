@@ -60,4 +60,5 @@ export const links = {
   github: "https://github.com/Pssttt",
   linkedin: "https://www.linkedin.com/in/pssteee/",
   resume: "/resume.pdf",
+  terminal: "https://terminal.psstee.me",
 };
