@@ -29,7 +29,7 @@ export default function Home() {
             <Image
               className="photo"
               src="/me.jpg"
-              alt="Pyae Sone, smiling, in front of a wall of painted enamel plates"
+              alt="Pyae Sone Shin Thant, smiling, in front of a wall of painted enamel plates"
               width={1024}
               height={1024}
               priority
@@ -64,7 +64,7 @@ export default function Home() {
               }}
             >
               <span className="reveal">
-                <span>Hi, I'm Pyae Sone.</span>
+                <span>Hi, I'm Pyae Sone Shin Thant.</span>
               </span>
               <span className="reveal">
                 <span>I fix the things that look slightly wrong.</span>

@@ -6,7 +6,7 @@ export function SiteHeader() {
   return (
     <nav className="site-nav">
       <Link href="/" className="site-name">
-        Pyae Sone
+        Pyae Sone Shin Thant
       </Link>
       <div className="site-links">
         <Link href="/projects" className="link link-quiet muted">
