@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Replay } from "@/components/Replay";
 import { ResumeLink } from "@/components/ResumeLink";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -25,27 +26,24 @@ export default function Home() {
           style={{ padding: "88px 0 112px", alignItems: "end" }}
         >
           <div style={{ gridColumn: "span 4" }}>
-            <div
+            <Image
               className="photo"
-              role="img"
-              aria-label="Pyae Sone"
+              src="/me.jpg"
+              alt="Pyae Sone, smiling, in front of a wall of painted enamel plates"
+              width={1024}
+              height={1024}
+              priority
+              sizes="(max-width: 860px) 220px, 340px"
               style={{
+                width: "100%",
+                height: "auto",
                 aspectRatio: "4 / 5",
+                objectFit: "cover",
+                objectPosition: "55% 50%",
                 borderRadius: 14,
-                background: "var(--accent)",
-                display: "flex",
-                alignItems: "flex-end",
-                padding: 22,
-                boxSizing: "border-box",
-                color: "var(--on-accent)",
-                fontSize: 96,
-                fontWeight: 700,
-                letterSpacing: "-0.05em",
-                lineHeight: 0.8,
+                display: "block",
               }}
-            >
-              PS
-            </div>
+            />
           </div>
           <div
             style={{
