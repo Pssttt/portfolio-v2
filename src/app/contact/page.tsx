@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <div className="wrap">
       <SiteHeader />
-      <main className="grid12" style={{ alignItems: "start" }}>
+      <main className="grid12 g-start">
         <header
           className="page-head"
           style={{ gridColumn: "span 5", paddingBottom: 0 }}
@@ -35,7 +35,7 @@ export default function ContactPage() {
             .
           </p>
         </header>
-        <div style={{ gridColumn: "span 7", paddingTop: 72 }}>
+        <div className="form-col" style={{ gridColumn: "span 7" }}>
           <ContactForm />
         </div>
       </main>

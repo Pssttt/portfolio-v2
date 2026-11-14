@@ -14,15 +14,7 @@ export function SiteFooter() {
           {links.email}
         </a>
       </p>
-      <div
-        style={{
-          display: "flex",
-          gap: 22,
-          fontSize: 16,
-          flexWrap: "wrap",
-          alignItems: "baseline",
-        }}
-      >
+      <div className="footer-links">
         {sha && sha !== "dev" && (
           <a
             href={`https://github.com/Pssttt/portfolio-v2/commit/${sha}`}

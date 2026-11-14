@@ -3,9 +3,13 @@ import type { MouseEvent } from "react";
 const reduced = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/** A tap fires a mousemove with no mouseleave after it, which would leave the card tilted. */
+const canHover = () =>
+  window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
 /** Tilt a card toward the cursor and move its shine. Writes CSS variables only, no re-render. */
 export function tilt(e: MouseEvent<HTMLElement>) {
-  if (reduced()) return;
+  if (reduced() || !canHover()) return;
   const el = e.currentTarget;
   const r = el.getBoundingClientRect();
   const x = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));

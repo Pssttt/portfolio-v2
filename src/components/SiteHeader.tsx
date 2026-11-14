@@ -22,8 +22,8 @@ export function SiteHeader() {
           Contact
         </Link>
         <ResumeLink className="link link-quiet muted">Resume</ResumeLink>
-        <ThemeToggle />
       </div>
+      <ThemeToggle />
     </nav>
   );
 }

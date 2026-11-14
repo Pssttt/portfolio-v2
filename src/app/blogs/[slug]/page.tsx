@@ -52,14 +52,17 @@ export default async function PostPage({ params }: Params) {
           <header className="page-head" style={{ gap: 20 }}>
             <Link
               href="/blogs"
-              className="link link-quiet muted"
+              className="link link-quiet muted tap"
               style={{ fontSize: 16 }}
             >
               Writing
             </Link>
             <h1
               className="page-title"
-              style={{ fontSize: "clamp(36px, 5vw, 56px)", lineHeight: 1.05 }}
+              style={{
+                fontSize: "clamp(30px, max(5vw, min(8.5vw, 36px)), 56px)",
+                lineHeight: 1.05,
+              }}
             >
               {post.title}
             </h1>

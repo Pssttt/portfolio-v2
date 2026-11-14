@@ -50,14 +50,17 @@ export default async function ProjectPage({ params }: Params) {
         <header className="page-head" style={{ gap: 20 }}>
           <Link
             href="/projects"
-            className="link link-quiet muted"
+            className="link link-quiet muted tap"
             style={{ fontSize: 16 }}
           >
             Projects
           </Link>
           <h1
             className="page-title"
-            style={{ fontSize: "clamp(36px, 5vw, 56px)", lineHeight: 1.05 }}
+            style={{
+              fontSize: "clamp(30px, max(5vw, min(8.5vw, 36px)), 56px)",
+              lineHeight: 1.05,
+            }}
           >
             {p.title}
           </h1>

@@ -22,8 +22,8 @@ export default function Home() {
 
       <main>
         <section
-          className="grid12"
-          style={{ padding: "88px 0 112px", alignItems: "end" }}
+          className="grid12 g-end"
+          style={{ padding: "var(--s-hero) 0 var(--s-xl)" }}
         >
           <div style={{ gridColumn: "span 4" }}>
             <Image
@@ -33,16 +33,7 @@ export default function Home() {
               width={1024}
               height={1024}
               priority
-              sizes="(max-width: 860px) 220px, 340px"
-              style={{
-                width: "100%",
-                height: "auto",
-                aspectRatio: "4 / 5",
-                objectFit: "cover",
-                objectPosition: "55% 50%",
-                borderRadius: 14,
-                display: "block",
-              }}
+              sizes="(max-width: 700px) 168px, (max-width: 860px) 220px, 340px"
             />
           </div>
           <div
@@ -57,7 +48,7 @@ export default function Home() {
             <h1
               style={{
                 margin: 0,
-                fontSize: "clamp(44px, 7vw, 76px)",
+                fontSize: "clamp(34px, max(7vw, min(10.5vw, 44px)), 76px)",
                 lineHeight: 0.98,
                 letterSpacing: "-0.045em",
                 fontWeight: 650,
@@ -74,7 +65,7 @@ export default function Home() {
               className="muted"
               style={{
                 margin: 0,
-                fontSize: 20,
+                fontSize: "clamp(17px, 4.8vw, 20px)",
                 lineHeight: 1.55,
                 maxWidth: "36em",
               }}
@@ -84,15 +75,7 @@ export default function Home() {
               Kubernetes. At home I run about 30 apps on my own cluster. I'm
               looking for platform, DevOps or SRE work.
             </p>
-            <div
-              style={{
-                display: "flex",
-                gap: 22,
-                flexWrap: "wrap",
-                fontSize: 17,
-                fontWeight: 500,
-              }}
-            >
+            <div className="hero-links">
               <a href={`mailto:${links.email}`} className="link">
                 {links.email}
               </a>
@@ -107,9 +90,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="work" style={{ paddingBottom: 104 }}>
+        <section id="work" style={{ paddingBottom: "var(--s-lg)" }}>
           <h2
-            style={{ ...h2, fontSize: 40, lineHeight: 1.05, maxWidth: "16em" }}
+            style={{
+              ...h2,
+              fontSize: "clamp(30px, 8.5vw, 40px)",
+              lineHeight: 1.05,
+              maxWidth: "16em",
+            }}
           >
             Things I noticed, and what I did about them
           </h2>
@@ -117,8 +105,8 @@ export default function Home() {
         </section>
 
         <section
-          className="grid12"
-          style={{ paddingBottom: 112, alignItems: "start" }}
+          className="grid12 g-start"
+          style={{ paddingBottom: "var(--s-xl)" }}
         >
           <div
             style={{
@@ -128,7 +116,13 @@ export default function Home() {
               gap: 14,
             }}
           >
-            <h2 style={{ ...h2, fontSize: 32, lineHeight: 1.08 }}>
+            <h2
+              style={{
+                ...h2,
+                fontSize: "clamp(26px, 7.5vw, 32px)",
+                lineHeight: 1.08,
+              }}
+            >
               Watch the first one happen
             </h2>
             <p
@@ -143,7 +137,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="grid12" style={{ paddingBottom: 104 }}>
+        <section className="grid12" style={{ paddingBottom: "var(--s-lg)" }}>
           <h2 style={{ ...h2, gridColumn: "span 4", fontSize: 24 }}>
             Also built
           </h2>
@@ -151,7 +145,7 @@ export default function Home() {
             style={{
               gridColumn: "span 8",
               margin: 0,
-              fontSize: 20,
+              fontSize: "clamp(17px, 4.8vw, 20px)",
               lineHeight: 1.6,
               maxWidth: "34em",
             }}
@@ -184,21 +178,10 @@ export default function Home() {
               <a
                 key={p.slug}
                 href={`/blogs/${p.slug}`}
-                className="link link-quiet"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  gap: 24,
-                  fontSize: 20,
-                }}
+                className="link link-quiet post-row"
               >
                 <span>{p.title}</span>
-                <span
-                  className="muted"
-                  style={{ fontSize: 16, whiteSpace: "nowrap" }}
-                >
-                  {formatMonth(p.date)}
-                </span>
+                <span className="muted post-date">{formatMonth(p.date)}</span>
               </a>
             ))}
             <a

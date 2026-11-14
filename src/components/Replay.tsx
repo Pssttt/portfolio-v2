@@ -87,7 +87,7 @@ export function Replay() {
         display: "flex",
         flexDirection: "column",
         gap: 22,
-        padding: 32,
+        padding: "clamp(18px, 5vw, 32px)",
         borderRadius: 14,
         background: "var(--panel)",
       }}

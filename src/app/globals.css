@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 :root {
+  /* Section rhythm. Phones override these in the small-screen block. */
+  --s-hero: 88px;
+  --s-xl: 112px;
+  --s-lg: 104px;
   --bg: #f4f5f7;
   --fg: #14161a;
   --muted: #5b616c;
@@ -39,6 +43,8 @@
 
 html {
   background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -272,15 +278,69 @@ a {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 48px;
 }
+.grid12.g-start {
+  align-items: start;
+}
+.grid12.g-end {
+  align-items: end;
+}
+.photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 55% 50%;
+  border-radius: 14px;
+  display: block;
+}
+.hero-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  font-size: 17px;
+  font-weight: 500;
+}
+.post-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 20px;
+}
+.post-date {
+  font-size: 16px;
+  white-space: nowrap;
+}
+.form-col {
+  padding-top: 72px;
+}
 
 @media (max-width: 860px) {
+  :root {
+    --s-hero: 28px;
+    --s-xl: 56px;
+    --s-lg: 64px;
+  }
   .wrap {
     padding: 0 16px;
   }
-  .grid12 {
+  /* Columns stack, and every child takes the full width */
+  .grid12,
+  .grid12.g-start,
+  .grid12.g-end {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     gap: 24px;
+  }
+  .hero-links {
+    gap: 0 14px;
+    font-size: 16px;
+  }
+  .hero-links a {
+    padding: 9px 0;
+  }
+  .form-col {
+    padding-top: 0;
   }
   .hand {
     justify-content: flex-start;
@@ -290,6 +350,8 @@ a {
     padding: 24px 16px 24px;
     margin: 0 -16px;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: 16px;
+    overscroll-behavior-x: contain;
   }
   .slot {
     margin: 0;
@@ -335,7 +397,7 @@ a {
   justify-content: space-between;
   align-items: center;
   min-height: 76px;
-  gap: 16px;
+  gap: 16px 26px;
   flex-wrap: wrap;
 }
 .site-name {
@@ -350,6 +412,7 @@ a {
   align-items: center;
   font-size: 16px;
   flex-wrap: wrap;
+  margin-left: auto;
 }
 .site-footer {
   display: flex;
@@ -366,6 +429,13 @@ a {
   font-size: 28px;
   letter-spacing: -0.02em;
   font-weight: 600;
+}
+.footer-links {
+  display: flex;
+  gap: 22px;
+  font-size: 16px;
+  flex-wrap: wrap;
+  align-items: baseline;
 }
 .page-title {
   margin: 0;
@@ -618,4 +688,109 @@ a {
 .btn-solid:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* Phones only. Tablets keep the roomier layout. Kept last so it wins over the rules above. */
+@media (max-width: 700px) {
+  .photo {
+    max-width: 168px;
+  }
+  .post-row {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 18px;
+    line-height: 1.35;
+  }
+  .post-date {
+    font-size: 15px;
+  }
+  /* Name and theme switch on the first row, the links spread across the second */
+  .site-nav {
+    min-height: 0;
+    padding: 14px 0 6px;
+    gap: 4px 16px;
+  }
+  .site-name {
+    order: 1;
+    padding: 8px 0;
+  }
+  .site-nav > .btn {
+    order: 2;
+    height: 36px;
+  }
+  .site-links {
+    order: 3;
+    flex: 1 0 100%;
+    margin-left: 0;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px;
+    font-size: 15px;
+  }
+  .site-links a {
+    padding: 11px 0;
+  }
+  .site-footer {
+    margin-top: 72px;
+    padding: 32px 0 40px;
+    gap: 12px 24px;
+  }
+  .footer-line {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+  .footer-links {
+    gap: 0 22px;
+  }
+  .footer-links a {
+    padding: 9px 0;
+  }
+  .tap {
+    display: inline-block;
+    padding: 8px 0;
+    margin: -8px 0;
+  }
+  .page-head {
+    padding: 40px 0 32px;
+  }
+  .index-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+    padding: 22px 0;
+  }
+  .index-title {
+    font-size: 21px;
+  }
+  .index-sub {
+    font-size: 16px;
+  }
+  .prose {
+    font-size: 17px;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+  }
+  .prose h2 {
+    font-size: 24px;
+  }
+  .prose h3 {
+    font-size: 19px;
+  }
+  .prose pre {
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+  .prose table {
+    display: block;
+    overflow-x: auto;
+  }
+  .prose ul,
+  .prose ol {
+    padding-left: 22px;
+  }
+  .card-grid {
+    gap: 14px;
+  }
+  .tcard.tcard-grid {
+    min-height: 0;
+  }
 }
